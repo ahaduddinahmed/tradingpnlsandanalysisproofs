@@ -3,304 +3,188 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ahad’s Trading PnL Showcase</title>
+<title>Ahad’s Trading Portfolio</title>
 <style>
-  body {
-    font-family: "Poppins", sans-serif;
-    margin: 0;
-    background: #fffbe6;
-    color: #222;
-  }
-
-  header {
-    background: #ffe15d;
-    color: #222;
-    text-align: center;
-    padding: 2rem 1rem;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  }
-
-  header h1 {
-    margin: 0;
-    font-size: 2.2rem;
-    letter-spacing: 1px;
-  }
-
-  header p {
-    margin-top: 8px;
-    font-size: 1rem;
-    color: #444;
-  }
-
-  .upload-section {
-    text-align: center;
-    margin: 2rem auto;
-  }
-
-  .upload-section input[type="file"] {
-    display: none;
-  }
-
-  .upload-label {
-    display: inline-block;
-    background: #222;
-    color: white;
-    padding: 12px 24px;
-    border-radius: 10px;
-    cursor: pointer;
-    font-weight: 500;
-    transition: 0.3s;
-  }
-
-  .upload-label:hover {
-    background: #444;
-  }
-
-  .password-section {
-    text-align: center;
-    margin: 2rem auto;
-  }
-
-  .password-input {
-    padding: 10px;
-    border-radius: 8px;
-    border: 1px solid #bbb;
-    width: 220px;
-    font-size: 1rem;
-  }
-
-  .btn-login {
-    background: #222;
-    color: white;
-    border: none;
-    padding: 10px 18px;
-    border-radius: 8px;
-    cursor: pointer;
-    margin-left: 6px;
-    font-weight: 500;
-  }
-
-  .gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1rem;
-    padding: 1rem 2rem 4rem;
-  }
-
-  .card {
-    background: white;
-    border-radius: 14px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-    overflow: hidden;
-    position: relative;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  .card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-  }
-
-  .card img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-
-  .card-info {
-    padding: 10px 14px 14px;
-  }
-
-  .card-info h3 {
-    margin: 5px 0 2px;
-    font-size: 1rem;
-  }
-
-  .card-info span {
-    font-size: 0.85rem;
-    color: #777;
-  }
-
-  .delete-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: #ff4d4d;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 28px;
-    height: 28px;
-    font-weight: bold;
-    cursor: pointer;
-    display: none;
-  }
-
-  .card:hover .delete-btn {
-    display: block;
-  }
-
-  /* Modal styles */
-  .modal {
-    display: none;
-    position: fixed;
-    z-index: 100;
-    left: 0; top: 0;
-    width: 100%; height: 100%;
-    background: rgba(0,0,0,0.85);
-    align-items: center;
-    justify-content: center;
-  }
-
-  .modal img {
-    max-width: 90%;
-    max-height: 90%;
-    border-radius: 10px;
-  }
-
-  .close-btn {
-    position: fixed;
-    top: 25px;
-    right: 35px;
-    font-size: 32px;
-    color: white;
-    cursor: pointer;
-    font-weight: bold;
-  }
-
-  footer {
-    text-align: center;
-    padding: 1rem;
-    background: #ffe15d;
-    color: #222;
-    font-size: 0.9rem;
-  }
+body{
+  font-family:"Poppins",sans-serif;
+  margin:0;
+  background:#fffbe6;
+  color:#222;
+}
+header{
+  background:#ffe15d;
+  color:#222;
+  text-align:center;
+  padding:2rem 1rem;
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+header h1{margin:0;font-size:2.2rem;}
+header p{margin-top:8px;color:#444;font-size:1rem;}
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:1rem;
+  padding:1rem 2rem 4rem;
+  justify-items:center;
+}
+.card{
+  background:white;
+  border-radius:14px;
+  box-shadow:0 6px 20px rgba(0,0,0,0.08);
+  overflow:hidden;
+  width:220px;
+  text-align:center;
+  transition:transform 0.3s ease,box-shadow 0.3s ease;
+}
+.card:hover{
+  transform: translateY(-6px);
+  box-shadow:0 10px 25px rgba(0,0,0,0.12);
+}
+.card img{
+  width:220px;
+  height:220px;
+  object-fit:cover;
+  cursor:pointer;
+  display:block;
+  margin:0 auto;
+  border-bottom:1px solid #eee;
+}
+.card-info{
+  padding:10px 0 14px;
+}
+.card-info h3{margin:5px 0 2px;font-size:1rem;}
+.card-info span{font-size:0.85rem;color:#777;}
+.modal{
+  display:none;
+  position:fixed;
+  z-index:100;
+  left:0; top:0;
+  width:100%; height:100%;
+  background:rgba(0,0,0,0.85);
+  align-items:center;
+  justify-content:center;
+}
+.modal img{
+  max-width:90%;
+  max-height:90%;
+  border-radius:10px;
+}
+.close-btn{
+  position:fixed;
+  top:25px;
+  right:35px;
+  font-size:32px;
+  color:white;
+  cursor:pointer;
+  font-weight:bold;
+}
+footer{
+  text-align:center;
+  padding:1rem;
+  background:#ffe15d;
+  color:#222;
+  font-size:0.9rem;
+}
 </style>
 </head>
 <body>
 
 <header>
-  <h1>Ahad’s Trading Proofs & PnL Gallery</h1>
-  <p>Show your verified trading results confidently to recruiters.</p>
+<h1>Ahad’s Trading Portfolio</h1>
+<p>Verified PnL Proofs & Screenshots</p>
 </header>
-
-<!-- Password login section -->
-<section class="password-section" id="passwordSection">
-  <input type="password" id="passwordInput" class="password-input" placeholder="Enter admin password">
-  <button class="btn-login" onclick="checkPassword()">Login</button>
-</section>
-
-<!-- Upload section (hidden until logged in) -->
-<section class="upload-section" id="uploadSection" style="display:none;">
-  <label for="fileUpload" class="upload-label">+ Upload Your PnL Screenshots</label>
-  <input type="file" id="fileUpload" multiple accept="image/*">
-</section>
 
 <section class="gallery" id="gallery"></section>
 
-<!-- Modal for viewing images -->
 <div id="imageModal" class="modal">
   <span class="close-btn" id="closeModal">&times;</span>
   <img id="modalImg" src="" alt="PnL Screenshot">
 </div>
 
-<footer>
-  © 2025 Ahad | Trading Proof Portfolio
-</footer>
+<footer>© 2025 Ahad | Trading Portfolio</footer>
 
 <script>
-const ADMIN_PASSWORD = "ahad123"; // <-- change this to your private password
+// List of all 50 images (replace filenames with your actual images)
+const images = [
+  "IMG-20251109-WA0007.jpg",
+  "WhatsApp Image 2025-11-10 at 00.29.09_9f6e13b1.jpg",
+  "IMG-20251031-WA0023.jpg",
+  "IMG-20251031-WA0035.jpg",
+  "IMG-20251031-WA0153.jpg",
+  "IMG-20251031-WA0172.jpg",
+  "IMG-20251031-WA0194.jpg",
+  "IMG-20251031-WA0278.jpg",
+  "IMG-20251031-WA0279.jpg",
+  "IMG-20251031-WA0280.jpg",
+  "IMG-20251031-WA0281.jpg",
+  "IMG-20251031-WA0305.jpg",
+  "IMG-20251031-WA0309.jpg",
+  "IMG-20251031-WA0312.jpg",
+  "IMG-20251031-WA0313.jpg",
+  "IMG-20251109-WA0005.jpg",
+  "IMG-20251109-WA0006.jpg",
+//   "IMG-20251109-WA0008.jpg",
+//   "IMG-20251109-WA0009.jpg",
+//   "IMG-20251109-WA0010.jpg",
+//   "IMG-20251109-WA0011.jpg",
+//   "IMG-20251109-WA0012.jpg",
+//   "IMG-20251109-WA0013.jpg",
+//   "IMG-20251109-WA0014.jpg",
+//   "IMG-20251109-WA0015.jpg",
+//   "IMG-20251109-WA0016.jpg",
+//   "IMG-20251109-WA0017.jpg",
+//   "IMG-20251109-WA0018.jpg",
+//   "IMG-20251109-WA0019.jpg",
+//   "IMG-20251109-WA0020.jpg",
+//   "IMG-20251109-WA0021.jpg",
+//   "IMG-20251109-WA0022.jpg",
+//   "IMG-20251109-WA0023.jpg",
+//   "IMG-20251109-WA0024.jpg",
+//   "IMG-20251109-WA0025.jpg",
+//   "IMG-20251109-WA0026.jpg",
+//   "IMG-20251109-WA0027.jpg",
+//   "IMG-20251109-WA0028.jpg",
+//   "IMG-20251109-WA0029.jpg",
+//   "IMG-20251109-WA0030.jpg",
+//   "IMG-20251109-WA0031.jpg",
+//   "IMG-20251109-WA0032.jpg",
+//   "IMG-20251109-WA0033.jpg",
+//   "IMG-20251109-WA0034.jpg",
+//   "IMG-20251109-WA0035.jpg",
+//   "IMG-20251109-WA0036.jpg",
+//   "IMG-20251109-WA0037.jpg",
+//   "IMG-20251109-WA0038.jpg",
+//   "IMG-20251109-WA0039.jpg",
+//   "IMG-20251109-WA0040.jpg"
+];
 
-const fileUpload = document.getElementById('fileUpload');
 const gallery = document.getElementById('gallery');
-const modal = document.getElementById('imageModal');
-const modalImg = document.getElementById('modalImg');
-const closeModal = document.getElementById('closeModal');
-const passwordSection = document.getElementById('passwordSection');
-const uploadSection = document.getElementById('uploadSection');
 
-// Load saved images from localStorage
-window.onload = function() {
-  const savedImages = JSON.parse(localStorage.getItem('pnlImages')) || [];
-  savedImages.forEach(src => createCard(src));
-};
-
-// Password check
-function checkPassword() {
-  const entered = document.getElementById('passwordInput').value;
-  if (entered === ADMIN_PASSWORD) {
-    passwordSection.style.display = "none";
-    uploadSection.style.display = "block";
-    alert("Welcome Ahad! You can now upload your PnL screenshots.");
-  } else {
-    alert("Incorrect password!");
-  }
-}
-
-// Upload new screenshots
-fileUpload.addEventListener('change', function(e) {
-  const files = Array.from(e.target.files);
-  let storedImages = JSON.parse(localStorage.getItem('pnlImages')) || [];
-
-  files.slice(0, 50 - storedImages.length).forEach(file => {
-    const reader = new FileReader();
-    reader.onload = function(event) {
-      const src = event.target.result;
-      storedImages.push(src);
-      localStorage.setItem('pnlImages', JSON.stringify(storedImages));
-      createCard(src);
-    };
-    reader.readAsDataURL(file);
-  });
-
-  if (storedImages.length >= 50) {
-    alert("You've reached the 50 PnL upload limit!");
-  }
-});
-
-// Create card UI
-function createCard(src) {
+images.forEach(imgSrc => {
   const card = document.createElement('div');
   card.classList.add('card');
   card.innerHTML = `
-    <button class="delete-btn">&times;</button>
-    <img src="${src}" alt="PnL Screenshot">
-    <div class="card-info">
-      <h3>PnL Proof</h3>
-      <span>${new Date().toLocaleDateString()}</span>
-    </div>
+    <img src="${imgSrc}" alt="PnL Screenshot">
+    <div class="card-info"><h3>PnL Proof</h3><span>2025-11-10</span></div>
   `;
+  gallery.appendChild(card);
+});
 
-  // delete function
-  card.querySelector('.delete-btn').addEventListener('click', () => {
-    if (confirm("Delete this PnL screenshot?")) {
-      deleteImage(src);
-      card.remove();
-    }
+// Modal functionality
+const modal = document.getElementById('imageModal');
+const modalImg = document.getElementById('modalImg');
+
+gallery.querySelectorAll('img').forEach(img => {
+  img.addEventListener('click', () => {
+    modal.style.display = 'flex';
+    modalImg.src = img.src;
   });
+});
 
-  card.querySelector('img').addEventListener('click', () => openModal(src));
-  gallery.prepend(card);
-}
-
-// Delete from localStorage
-function deleteImage(src) {
-  let storedImages = JSON.parse(localStorage.getItem('pnlImages')) || [];
-  storedImages = storedImages.filter(img => img !== src);
-  localStorage.setItem('pnlImages', JSON.stringify(storedImages));
-}
-
-// Modal handling
-function openModal(src) {
-  modal.style.display = 'flex';
-  modalImg.src = src;
-}
-
-closeModal.onclick = () => modal.style.display = 'none';
-modal.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; };
+document.getElementById('closeModal').onclick = () => modal.style.display = 'none';
+modal.onclick = e => { if(e.target === modal) modal.style.display='none'; };
 </script>
 
 </body>
 </html>
+
